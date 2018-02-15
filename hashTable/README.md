@@ -3,6 +3,8 @@
 
 ### hash table?
 
+hash function과 array를 합쳐 만든 자료 구조
+
 ![image0](./hashTable.png)
 
 ### hash function
@@ -12,8 +14,6 @@
 * 일관성이 있어야 한다(deterministic)
 
 * 서로 다른 값에 대해 서로 다른 숫자가 나와야 한다(이상적)
-
-* hash function과 array를 합치면 hash table이라는 자료 구조를 얻는다
 
 * 이 때, 배열이 얼마나 큰지 알고 있어야 하며, 유효한 인덱스만 반환해야 한다. 만약 배열이 5개의 원소만 가질 수 있다면 100을 반환해서는 안된다
 
