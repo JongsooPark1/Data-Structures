@@ -68,7 +68,7 @@
 
   * hast table의 bucket에만 data 보관한다
 
-  ![image4](./openAddressing.png)
+    ![image4](./openAddressing.png)
 
     - linear probing
 
