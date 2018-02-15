@@ -6,6 +6,6 @@
 
 * [Tree](./tree)
 
-* [Hash Table](./hastTable)
+* [Hash Table](./hashTable)
 
 * [Graph](./graph)
