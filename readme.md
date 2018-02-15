@@ -1,4 +1,4 @@
-## Data Structure
+## Data Structures
 ---
 * [Array & Linked List](./array&linkedList)
 
