@@ -110,7 +110,7 @@
 
     2. 데이터의 크기가 작다면, 특히 lookup에서, 이러한 특성들로 인해 chaining보다 성능이 좋을 수 있는 것이다
 
-    3. 포인터를 사용하지 않음으로써 serialization이 용이하다
+    3. 포인터를 사용하지 않아 메모리 소비 적고, serialization이 용이하다
 
 ### resizing  
 
