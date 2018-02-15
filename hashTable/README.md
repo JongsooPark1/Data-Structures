@@ -96,8 +96,8 @@
 
     2. 테이블이 채워져도 성능 저하가 linear하게 발생한다. 비록 테이블이 채워질 수록 chain은 늘어나겠지만(리스트의 길이가 길어지겠지만) near-filled 상태의 open-addressing 방식에서 발생하는 급작스런 lookup 시간의 증가는 발생하지 않는다
 
-      ![image8-1](./chainingVs.jpg)
-      
+    ![image8-1](./chainingVs.jpg)
+
     3. Open Address방식은 버킷을 계속해서 사용한다. 따라서 chaining 방식은 메모리 효율이 높고, 테이블의 확장(resizing)을 보다 늦출 수 있다
 
     4. data 삭제 시 문제 발생 확률이 낮다
