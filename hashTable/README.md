@@ -3,7 +3,7 @@
 
 ### hash table?
 
-hash function과 array를 합쳐 만든 자료 구조
+hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 항목간의 관계 및 연결을 표현하고자 할 때 사용한다
 
 ![image0](./hashTable.png)
 
@@ -17,7 +17,7 @@ hash function과 array를 합쳐 만든 자료 구조
 
 * 이 때, 배열이 얼마나 큰지 알고 있어야 하며, 유효한 인덱스만 반환해야 한다. 만약 배열이 5개의 원소만 가질 수 있다면 100을 반환해서는 안된다
 
-* hash table은 key와 value를 갖는다(ex-전화번호부, 이름과 번호의 관계)
+* hash table은 key와 value를 갖는다(ex-전화번호부, 이름과 번호의 관계). hash table은 순서를 가지지 않기 때문에 key-value 쌍을 어떤 순서로 추가하든 상관없다
 
 * 해시 맵(hash maps), 맵(maps), 딕셔너리(dictionaries), 연관 배열(associative arrays) 모두 hash table이다
 
@@ -25,9 +25,13 @@ hash function과 array를 합쳐 만든 자료 구조
 
 * 좋은 hash function이란?
 
-  배열 항목에 값을 고루 분포 시키는 함수
+  - 배열 항목에 값을 고루 분포 시키는 함수
 
-  ![image1](./goodHashFunction.png)
+  - 현실에서는 키들이 랜덤하지 않다
+
+  - 만약 키들의 통계적 분포에 대해 알고 있다면 이를 이용해서 hash function을 고안하는 것이 가능하겠지만 현실적으로 어렵다
+
+  - 키들이 어떤 특정한 패턴을 가지더라도 hash function의 return 값은 불규칙하게 되는 것이 바람직하다(키의 특정 부분에 의존해서 return 값이 결정되지 않아야 한다)
 
 ### example
 
@@ -37,11 +41,11 @@ hash function과 array를 합쳐 만든 자료 구조
 
 * 장점
 
- - 어떤 것과 다른 것 사이의 관계를 모형화 할 수 있다
+  - 어떤 것과 다른 것 사이의 관계를 모형화 할 수 있다
 
- - 중복을 막을 수 있다
+  - 중복을 막을 수 있다
 
- - 서버에 작업을 시키지 않고 자료를 caching할 수 있다
+  - 서버에 작업을 시키지 않고 자료를 caching할 수 있다
 
 
 ### collision
