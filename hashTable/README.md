@@ -58,7 +58,7 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 
   #### chaining
 
-  * data를 hash table의 각 bucket에 list를 만들어 보관한다 (bucket 내부에서 red-black tree를 활용해 data를 보관하는 경우도 있다. 데이터의 크기가 커지면 이 방법이 더 유용하다. key-value 쌍이 6, 8개를 기준으로 8개를 넘어가면 red-black tree를 활용하고, 6개로 적어지면 linked list를 활용한다)
+  * data를 hash table의 각 bucket에 list를 만들어 key를 보관한다 (bucket 내부에서 red-black tree를 활용해 data를 보관하는 경우도 있다. 데이터의 크기가 커지면 이 방법이 더 유용하다. key-value 쌍이 6, 8개를 기준으로 8개를 넘어가면 red-black tree를 활용하고, 6개로 적어지면 linked list를 활용한다)
 
   * 시간 복잡도
 
@@ -70,11 +70,11 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 
   #### open addressing
 
-  * hast table의 bucket에만 data 보관한다
+  * hast table의 bucket에만 key를 보관한다
 
-    ![image4](./openAddressing.png)
+  * 각 bucket에는 1개의 key만 저장한다
 
-    - linear probing
+    1. linear probing
 
     ![image5](./linearProbing.png)
 
@@ -82,17 +82,17 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 
     이런 cluster가 생성하면 cluster는 점점 더 커지는 경향이 생기고, data검색 시 시간복잡도 증가하게 되는 단점이 생긴다. 따라서 cluster는 성능이 좋은 hash function으로 없애주는게 좋다
 
-    - quadratic probing
+    2. quadratic probing
 
     ![image6](./quadraticProbing.png)
 
-    - double hashing
+    3. double hashing
 
     ![image7](./doubleHashing.png)
 
     #### chaining vs open openAddressing
 
-    일단 두 방식 모두 worst case 에서 O(n)이다. 하지만 open addressing방식은 연속된 공간에 데이터를 저장하기 때문에 separate chaining에 비해 캐시 효율이 높다. 따라서 데이터의 개수가 충분히 적다면 open address방식이 separate chaining보다 더 성능이 좋다
+    일단 두 방식 모두 worst case 에서 O(n)이다. 하지만 open addressing방식은 연속된 공간에 데이터를 저장하기 때문에 separate chaining에 비해 캐시 효율이 높다. 따라서 데이터의 개수가 충분히 적다면 open addressing방식이 separate chaining보다 더 성능이 좋다
 
     chaining의 장점
 
@@ -102,7 +102,7 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 
       ![image8_1](./chainingVS.jpg)
 
-    3. Open Address방식은 버킷을 계속해서 사용한다. 따라서 chaining 방식은 메모리 효율이 높고, 테이블의 확장(resizing)을 보다 늦출 수 있다
+    3. open addressing방식은 버킷을 계속해서 사용한다. 따라서 chaining 방식은 메모리 효율이 높고, 테이블의 확장(resizing)을 보다 늦출 수 있다
 
     4. data 삭제 시 문제 발생 확률이 낮다
 
