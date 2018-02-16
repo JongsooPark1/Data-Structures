@@ -25,7 +25,7 @@ hash function과 array를 합쳐 만든 자료 구조
 
 * 좋은 hash function이란?
 
-  좋은 해시 함수란 배열 항목에 값을 고루 분포 시키는 함수
+  배열 항목에 값을 고루 분포 시키는 함수
 
   ![image1](./goodHashFunction.png)
 
