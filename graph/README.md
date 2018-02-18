@@ -70,6 +70,16 @@ edge에 가중치(weight)가 존재하는 graph. weighted graph에서 최단 경
 
 나중에 정리...잘 이해 안된다...
 
+* 최단 경로 탐색 비교
+
+BFS
+
+![image](shortByBFS.png)
+
+dijkstra's algorithm
+
+![image](shortByDijkstra.png)
+
 ### 방향성 비순환 그래프(DAG, Directed Acyclic Graph)
 
 방향 그래프 중 사이클이 없는 그래프
