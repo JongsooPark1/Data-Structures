@@ -80,6 +80,8 @@ dijkstra's algorithm
 
 ![image](shortByDijkstra.png)
 
+다중 시작점은 클루이드
+
 ### 방향성 비순환 그래프(DAG, Directed Acyclic Graph)
 
 방향 그래프 중 사이클이 없는 그래프
