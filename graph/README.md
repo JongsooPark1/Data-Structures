@@ -87,3 +87,8 @@ dijkstra's algorithm
 방향 그래프 중 사이클이 없는 그래프
 
 ![image](./dag.png)
+
+
+### 탐색 비교
+
+![image](comparison.png)
