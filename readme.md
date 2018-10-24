@@ -1,14 +1,11 @@
 ## Data Structures
 
 
-* [Array & Linked List](./array&linkedList)
+* [Array, ArrayList, LinkedList](./Array_ArraList_LinkedList)
 
 * [Stack & Queue](./stack&queue)
-
 * [Tree](./tree)
-
 * [Hash Table](./hashTable)
-
 * [Graph](./graph)
 
 
