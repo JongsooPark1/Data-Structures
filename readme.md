@@ -1,7 +1,7 @@
 ## Data Structures
 
 
-* [Array, ArrayList, LinkedList](./Array_ArraList_LinkedList)
+* [Array, ArrayList, LinkedList](./Array_ArrayList_LinkedList)
 
 * [Stack & Queue](./stack&queue)
 * [Tree](./tree)
