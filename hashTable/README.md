@@ -1,7 +1,5 @@
 ## Hash Table
----
-
-### hash table?
+###hash table?
 
 > hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 항목간의 관계 및 연결을 표현하고자 할 때 사용한다
 
@@ -74,8 +72,6 @@
 
 ### how to resolve collision
 
-</br>
-
   #### chaining
 
   * data를 hash table의 각 bucket에 list를 만들어 key를 보관한다 (bucket 내부에서 red-black tree를 활용해 data를 보관하는 경우도 있다. 데이터의 크기가 커지면 이 방법이 더 유용하다. key-value 쌍이 6, 8개를 기준으로 8개를 넘어가면 red-black tree를 활용하고, 6개로 적어지면 linked list를 활용한다)
@@ -116,17 +112,23 @@
 
     ![image7](./doubleHashing.png)
 
+h1(14) = 1 따라서 1번 slot을 검사. 이미 79가 차있다. 이 때 h2(14) = 4 이기 때문에 그 다음 slot으로 5(= 1 + 4)번 slot을 방문. 또 차있기 때문에 9(= 5 + 4)번 slot을 방문.
+
+h2함수는 결국 h1함수로 반환된 slot의 위치가 차있을 경우 얼마만큼 이동하는지를 결정하는데 사용된다. 따라서 그 값이 0이 나와서는 안된다.
+
 </br>
 
 
 
 
 
-  #### chaining vs open openAddressing
+  #### Chaining vs Open Addressing
 
   일단 두 방식 모두 worst case 에서 O(n)이다. 하지만 open addressing방식은 연속된 공간에 데이터를 저장하기 때문에 separate chaining에 비해 캐시 효율이 높다. 따라서 데이터의 개수가 충분히 적다면 open addressing방식이 separate chaining보다 더 성능이 좋다
 
-  chaining의 장점
+</br>
+
+####chaining의 장점
 
   1. 해쉬 함수를 구현(선택)하는 관점에서 볼 때, chained 해쉬 테이블은 클러스터링에 거의 영향을 받지 않아 충돌의 최소화만 중점적으로 살펴보면 된다. 반면에 open-addressing 방식은 클러스터링까지 피해야 하므로 해쉬 함수의 성능에 지대한 영향을 받아 해쉬 함수를 구현(선택)하기가 쉽지 않다
 
@@ -140,11 +142,23 @@
 
   ![image8](./weaknessOfOpen.png)
 
-  open addressing의 장점
 
-    1. 외부에 별도 공간을 필요로 하지 않기 때문에 chaining의 연결 리스트 같은 외부 공간에 필요한 추가적인 작업이 요구되지 않는다
-    2. 데이터의 크기가 작다면, 특히 lookup에서, 이러한 특성들로 인해 chaining보다 성능이 좋을 수 있는 것이다
-    3. 포인터를 사용하지 않아 메모리 소비 적고, serialization이 용이하다
+
+A2 이후 다음 위치가 비어있기 때문에 C2를 없는 것으로 착각할 수 있다. 따라서 C2를 3번 slot으로 옮겨주는 작업이 필요하다. 만약 C2 이후 계속 원소(같은 키 값을 갖는)가 있다면 가장 마지막 원소를 빈칸에 채워주는 것이 더 효율적이다.
+
+
+
+</br>
+
+####open addressing 의 장점
+
+1. 외부에 별도 공간을 필요로 하지 않기 때문에 chaining의 연결 리스트 같은 외부 공간에 필요한 추가적인 작업이 요구되지 않는다
+
+2. 데이터의 크기가 작다면, 특히 lookup에서, 이러한 특성들로 인해 chaining보다 성능이 좋을 수 있는 것이다
+
+3. 포인터를 사용하지 않아 메모리 소비 적고, serialization이 용이하다
+
+
 
 </br>
 
