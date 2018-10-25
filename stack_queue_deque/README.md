@@ -1,4 +1,4 @@
-## Stack, Queue, Deque
+## Stack, Queue, Priority Queue, Deque, Heap
 
 
 ### Stack
@@ -17,6 +17,38 @@
 
 </br>
 
+### Priority Queue
+
+일반적인 큐는 FIFO 자료구조 이기 때문에 먼저 들어온 데이터를 먼저 내보냈다면, 우선순위 큐는 우선순위가 높은 데이터를 먼저 내보내는 자료구조
+
+새로운 노드를 삽입하면 우선순위에 맞게 위치에 삽입 (Enqueue)하고, 제거를 할 때는 가장 우선 순위가 높은 맨 앞에 노드를 빼면서 삭제(Dequeue)한다
+
+
+
+</br>
+
 ### Deque
 
 응용된 Queue. 원소의 삽입 및 삭제가 맨 앞쪽과 뒤쪽에서 둘 다 가능하다. Stack과 Queue의 기능이 합쳐진 형태
+
+
+
+</br>
+
+### Heap
+
+- 힙(heap)은 **완전이진트리(Complete binary tree)**를 기본으로 한 자료구조(tree-based structure) (시간복잡도 : O(log N))
+- 일반적으로 **배열**을 사용하여 **구현**한다.
+- 완전이진트리는 최댓값 및 최솟값을 찾아내는 연산을 빠르게 하기 위해 고안
+- 다음과 같은 힙 속성(property)을 만족한다.
+  - A가 B의 부모노드(parent node) 이면, A의 키(key)값과 B의 키값 사이에는 대소관계가 성립한다.
+  - 형제 노드끼리는 비교 불필요하다.
+
+
+
+</br>
+
+참조
+
+https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html
+
