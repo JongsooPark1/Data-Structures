@@ -2,8 +2,7 @@
 
 
 * [Array, ArrayList, LinkedList](./Array_ArrayList_LinkedList)
-
-* [Stack & Queue](./stack&queue)
+* [Stack & Queue](./stack_queue_deque)
 * [Tree](./tree)
 * [Hash Table](./hashTable)
 * [Graph](./graph)
