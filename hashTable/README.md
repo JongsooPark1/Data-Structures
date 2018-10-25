@@ -3,9 +3,13 @@
 
 ### hash table?
 
-hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 항목간의 관계 및 연결을 표현하고자 할 때 사용한다
+> hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 항목간의 관계 및 연결을 표현하고자 할 때 사용한다
 
 ![image0](./hashTable.png)
+
+</br>
+
+</br>
 
 ### hash function
 
@@ -33,6 +37,10 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 
   - 키들이 어떤 특정한 패턴을 가지더라도 hash function의 return 값은 불규칙하게 되는 것이 바람직하다(키의 특정 부분에 의존해서 return 값이 결정되지 않아야 한다)
 
+</br>
+
+</br>
+
 ### example
 
 * DNS 확인 작업에 사용. URL과 IP 주소 mapping
@@ -48,13 +56,25 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
   - 서버에 작업을 시키지 않고 자료를 caching할 수 있다
 
 
+</br>
+
+</br>
+
 ### collision
 
 * 여러 개의 키가 같은 슬롯을 할당하게 되는 경우 발생하는 문제, h(k1) = h(k2)
 
 * 100만개의 크기를 가지는 해쉬 테이블에 뛰어난 해쉬 함수로 가지고 있다고 해도, 대략 2500개의 레코드가 찼을 때 충돌이 발생활 확률은 95%에 이른다고 한다. 따라서 충돌 해결을 필수적이다. 만약 hash function이 단사 함수(정의역과 치역이 1:1 대응)이라면 이는 좋은 hash function이 될 수 있겠지만, 데이터의 크기만큼 hash table의 크기가 커지는 것을 불가능하며, 이는 배열이나 다름 없다
 
+
+
+</br>
+
+</br>
+
 ### how to resolve collision
+
+</br>
 
   #### chaining
 
@@ -67,6 +87,12 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
   ![image3](./chaining_O.png)
 
   흔히 hash table의 평균 검색 시간을 O(1)이라고 하는데, 이는 각각의 키가 모든 슬롯에 균등한 확률로 독립적으로 hashing된다는 가정(SUHA, simple uniform hashing assumption)이 필요하다. 그래서 사용률이 1이하가 된다면 평균 검색 시간을 O(1)이라고 할 수 있다
+
+</br>
+
+
+
+
 
   #### open addressing
 
@@ -90,6 +116,12 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 
     ![image7](./doubleHashing.png)
 
+</br>
+
+
+
+
+
   #### chaining vs open openAddressing
 
   일단 두 방식 모두 worst case 에서 O(n)이다. 하지만 open addressing방식은 연속된 공간에 데이터를 저장하기 때문에 separate chaining에 비해 캐시 효율이 높다. 따라서 데이터의 개수가 충분히 적다면 open addressing방식이 separate chaining보다 더 성능이 좋다
@@ -110,11 +142,13 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 
   open addressing의 장점
 
-  1. 외부에 별도 공간을 필요로 하지 않기 때문에 chaining의 연결 리스트 같은 외부 공간에 필요한 추가적인 작업이 요구되지 않는다
+    1. 외부에 별도 공간을 필요로 하지 않기 때문에 chaining의 연결 리스트 같은 외부 공간에 필요한 추가적인 작업이 요구되지 않는다
+    2. 데이터의 크기가 작다면, 특히 lookup에서, 이러한 특성들로 인해 chaining보다 성능이 좋을 수 있는 것이다
+    3. 포인터를 사용하지 않아 메모리 소비 적고, serialization이 용이하다
 
-  2. 데이터의 크기가 작다면, 특히 lookup에서, 이러한 특성들로 인해 chaining보다 성능이 좋을 수 있는 것이다
+</br>
 
-  3. 포인터를 사용하지 않아 메모리 소비 적고, serialization이 용이하다
+</br>
 
 ### resizing  
 
@@ -130,3 +164,5 @@ hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 �
 참조
 
 http://egloos.zum.com/sweeper/v/925740
+
+https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/
