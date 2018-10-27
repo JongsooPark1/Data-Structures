@@ -51,6 +51,8 @@ node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
 
 </br>
 
+-----
+
 
 
 ### 이진 검색 트리(Binary Search Tree)
@@ -63,19 +65,51 @@ node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
 
 
 
-#### 시간복잡도
+</br>
 
-Search : O(logN)
+* **successor** : 해당 node보다 크면서 가장 작은 키(값)를 가진 node, successor 찾는 시간 복잡도는 O(h)
 
-Insert : O(logN), 처음 삽입한 node가 root node. 새로 node가 삽입 될 때, 기존의 node들은 그 자리를 유지한채로 새 node만 삽입된다
+  * node v의 오른쪽 subtree가 존재 할 경우 : 오른쪽 subtree의 최소값(가장 왼쪽 값)
 
-Delete : O(logN)
+  * node v의 오른쪽 subtree가 존재 안할 경우 : 부모 node 타고 쭉 올라가다가, 처음으로 어떤 node의 왼쪽 자식 node가 되는 node
+
+  * node v가 최대값이면 successor 없다
+
+* **predecessor** : 해당 node보다 작으면서 가장 큰 키(값)를 가진 node, predecessor 찾는 시간 복잡도는 O(h)
+
+* * successor 찾는 방식과 반대
+
+
+
+
 
 
 
 </br>
 
+#### 시간복잡도
+
+* **Search** : O(h)
+
+* **Insert** : O(h), 처음 삽입한 node가 root node. 새로 node가 삽입 될 때, 기존의 node들은 그 자리를 유지한채로 새 node만 삽입된다
+
+* **Delete** : O(h)
+
+* * 자식 node가 없을 경우 : 삭제하고자 하는 node만 트리에서 제거 (O(1))
+
+  * 자식 node가 1개 : 삭제하고자 하는 node 제거하고, 그 node의 자식 node를 부모 node와 연결 (O(1))
+  * 자식 node가 2개 : 삭제하고자 하는 node 제거하고, 제거 한 자리에 그 node의 successor를 복사한 뒤, copy 당한 node를 없애고 대신 그 자식 node를 그 자리에 위치 시킴 (O(h))
+
+
+![delete](./delete.jpg)
+
+</br>
+
+----
+
 ### Red Black Tree ###
+
+기본적으로 이진검색트리 형태. 하지만 키의 삽입이나 삭제시 tree가 balanced될 수 있도록 하여, 시간복잡도를 O(log2(n))으로 유지시킨다
 
 http://zeddios.tistory.com/237
 
