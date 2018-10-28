@@ -109,7 +109,7 @@ node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
 
 ### Red Black Tree ###
 
-기본적으로 이진검색트리 형태. 하지만 키의 삽입이나 삭제시 tree가 balanced될 수 있도록 하여, 시간복잡도를 O(log2(n))으로 유지시킨다
+기본적으로 이진검색트리 형태. 하지만 키의 삽입이나 삭제시 tree가 balanced될 수 있도록 하여, 시간복잡도를 O(log2(n))으로 유지시킨다(tree의 높이를 log2(n)으로 유지)
 
 http://zeddios.tistory.com/237
 
