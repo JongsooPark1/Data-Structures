@@ -1,11 +1,67 @@
 ## Stack, Queue, Priority Queue, Deque, Heap
 
+</br>
 
 ### Stack
 
 선형 자료구조의 일종으로 Last In First Out (LIFO, 후입선출). 즉, 나중에 들어간 원소가 먼저 나온다. 이것은 Stack의 가장 큰 특징이다. 차곡차곡 쌓이는 구조로 먼저 Stack에 들어가게 된 원소는 맨 바닥에 깔리게 된다. 그렇기 때문에 늦게 들어간 녀석들은 그 위에 쌓이게 되고 호출 시 가장 위에 있는 녀석이 호출되는 구조이다
 
 ![image0](stack.png)
+
+</br>
+
+* LinkedList 방식으로 Stack 구현 code
+
+```java
+public class ListStack {
+    private Node top;
+    private int size;
+    
+    public ListStack(){
+        this.top = null;
+        this.size = 0;
+    }
+    
+    private class Node {
+    		private Object data;
+    		private Node priorNode;
+        
+    		private Node(Object data) {
+    			this.data = data;
+    			this.priorNode = null;
+    		}
+    }
+    
+    public void push(Object data) {
+    		size++;
+    		Node newNode = new Node(data);
+    		newNode.priorNode = top;
+    		top = newNode;
+    }
+    
+    public Object peek() {
+    		if (top == null) {
+    			throw new ArrayIndexOutOfBoundsException();
+    		}
+    		return top.data;
+    }
+    
+    public Object pop() {
+    		size--;
+    		Object data  = peek();
+    		top = top.priorNode;
+    		return data;
+    }
+    
+    public int size() {
+    		return size;
+    }
+}
+```
+
+
+
+</br>
 
 </br>
 
@@ -17,6 +73,81 @@
 
 </br>
 
+* LinkedList 방식으로 Queue 구현 code
+
+```java
+public class ListQueue {
+	// 큐는 head노드와 tail노드를 가진다.
+	// 큐는 스택과 다르게 삽입과 삭제가 다른 부분에서 이루어지기 때문에 두개의 node를 갖는다
+	private int size;
+	private Node head;
+	private Node tail;
+
+	public ListQueue() {
+		this.head = null;
+		this.tail = null;
+	}
+
+	private class Node {
+		// 노드는 data와 다음 노드를 가진다.
+		private Object data;
+		private Node nextNode;
+
+		Node(Object data) {
+			this.data = data;
+			this.nextNode = null;
+		}
+	}
+
+	// 큐가 비어있는지 확인
+	public boolean empty() {
+		return (head == null);
+	}
+
+	// item을 큐의 tail에 넣는다.
+	public void add(Object item) {
+		size++;
+		Node newNode = new Node(item);
+		newNode.nextNode = null;
+		if (empty()) {
+			tail = newNode;
+			head = newNode;
+		} else {
+			tail.nextNode = newNode;
+			tail = newNode;
+		}
+	}
+
+	// head 의 데이터를 반환한다.
+	public Object peek() {
+		if (empty())
+			throw new ArrayIndexOutOfBoundsException();
+		return head.data;
+	}
+
+	// head 를 큐에서 제거한다.
+	public Object poll() {
+		size--;
+		Object item = peek();
+		head = head.nextNode;
+		if (head == null) {
+			tail = null;
+		}
+		return item;
+	}
+
+	public int size() {
+		return size;
+	}
+}
+```
+
+
+
+</br>
+
+</br>
+
 ### Priority Queue
 
 일반적인 큐는 FIFO 자료구조 이기 때문에 먼저 들어온 데이터를 먼저 내보냈다면, 우선순위 큐는 우선순위가 높은 데이터를 먼저 내보내는 자료구조
@@ -25,7 +156,7 @@
 
 우선순위 큐는 배열, 연결 리스트 또는 힙으로 구현 가능. 힙으로 구현한 우선 순위 큐가 가장 효율적(힙으로 구현할 경우 탐색, 삽입, 삭제 시간복잡도가 logn. 나머지는 n인 경우 있다)
 
-
+</br>
 
 </br>
 
@@ -33,7 +164,7 @@
 
 응용된 Queue. 원소의 삽입 및 삭제가 맨 앞쪽과 뒤쪽에서 둘 다 가능하다. Stack과 Queue의 기능이 합쳐진 형태
 
-
+</br>
 
 </br>
 
