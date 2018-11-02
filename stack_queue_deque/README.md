@@ -23,38 +23,42 @@ public class ListStack {
     }
     
     private class Node {
-    		private Object data;
-    		private Node priorNode;
+    	private Object data;
+    	private Node priorNode;
         
-    		private Node(Object data) {
-    			this.data = data;
-    			this.priorNode = null;
-    		}
+    	private Node(Object data) {
+    		this.data = data;
+    		this.priorNode = null;
+    	}
+    }
+    
+    public boolean isEmpty() {
+        return (top == null);
     }
     
     public void push(Object data) {
-    		size++;
-    		Node newNode = new Node(data);
-    		newNode.priorNode = top;
-    		top = newNode;
+    	size++;
+    	Node newNode = new Node(data);
+    	newNode.priorNode = top;
+    	top = newNode;
     }
     
     public Object peek() {
-    		if (top == null) {
-    			throw new ArrayIndexOutOfBoundsException();
-    		}
-    		return top.data;
+    	if (top == null) {
+    		throw new ArrayIndexOutOfBoundsException();
+    	}
+    	return top.data;
     }
     
     public Object pop() {
-    		size--;
-    		Object data  = peek();
-    		top = top.priorNode;
-    		return data;
+    	size--;
+    	Object data  = peek();
+    	top = top.priorNode;
+    	return data;
     }
     
     public int size() {
-    		return size;
+    	return size;
     }
 }
 ```
@@ -170,7 +174,7 @@ public class ListQueue {
 
 ### Heap
 
-- 힙(heap)은 **완전이진트리(Complete binary tree)**를 기본으로 한 자료구조(tree-based structure) (시간복잡도 : O(log N))
+- 힙(heap)은 완전이진트리(Complete binary tree)를 기본으로 한 자료구조(tree-based structure) (시간복잡도 : O(log N))
 
 - 일반적으로 **배열**을 사용하여 **구현**한다.
 
@@ -197,6 +201,8 @@ public class ListQueue {
 * 최대힙(max heap) : 부모 노드의 키 값이 자식 노드의 키 값보다 크거나 같은 완전 이진 트리
 
   최소힙(min heap) : 부모 노드의 키 값이 자식 노드의 키 값보다 작거나 같은 완전 이진 트리
+
+</br>
 
 
 
