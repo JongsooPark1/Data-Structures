@@ -14,7 +14,7 @@
 
 ```java
 public class ListStack {
-    private Node top;
+    private Node top;	//들어오고 나가는 부분
     private int size;
     
     public ListStack(){
@@ -85,14 +85,14 @@ public class ListStack {
 public class ListQueue {
 	// 큐는 head노드와 tail노드를 가진다.
 	// 큐는 스택과 다르게 삽입과 삭제가 다른 부분에서 이루어지기 때문에 두개의 node를 갖는다
-	private Node head;
-	private Node tail;
-    private int size;
+	private Node head;	// 나가는부분
+	private Node tail;	// 들어오는부분
+	private int size;
 
 	public ListQueue() {
 		this.head = null;
 		this.tail = null;
-        this.size = 0;
+		this.size = 0;
 	}
 
 	private class Node {
@@ -114,17 +114,17 @@ public class ListQueue {
 	// data를 큐의 tail에 넣는다.
 	public void add(Object data) {
 		Node newNode = new Node(data);
-        // 이부분 잊지 말기
+		// 이부분 잊지 말기
 		newNode.nextNode = null;
 		if (isEmpty()) {
 			tail = newNode;
 			head = newNode;
 		} else {
-            // tail(들어오는 부분)만 생각
+			// tail(들어오는 부분)만 생각
 			tail.nextNode = newNode;
 			tail = newNode;
 		}
-        size++;
+		size++;
 	}
 
 	// head의 데이터를 반환한다.
@@ -135,12 +135,12 @@ public class ListQueue {
 	}
 
 	// head 를 큐에서 제거한다.
-    // head(나가는 부분)만 생각
+	// head(나가는 부분)만 생각
 	public Object poll() {
 		Object data = peek();
-        size--;
+		size--;
 		head = head.nextNode;
-        // 이 부분 잊지 말기
+		// 이 부분 잊지 말기
 		if (head == null) {
 			tail = null;
 		}
