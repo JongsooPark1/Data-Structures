@@ -221,3 +221,79 @@ public class ListQueue {
 
 https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html
 
+</br>
+
+```java
+public class Heap {
+	private static final int Max_Size = 101;
+	public int arr[];
+	private int size;
+
+	public Heap() {
+		arr = new int[Max_Size];
+		Arrays.fill(arr, Integer.MIN_VALUE);
+		size = 0;
+	}
+
+	public boolean isEmpty() {
+		return (size == 0);
+	}
+
+	public boolean isFull() {
+		return (size == Max_Size - 1);
+	}
+
+	private void swap(int a, int b) {
+		int temp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = temp;
+	}
+
+	public void insert(int data) {
+        if (isFull()) {
+			throw new ArrayIndexOutOfException();
+		}
+		size++;
+		int temp_index = size;
+		arr[temp_index] = data;
+
+		while (temp_index > 1) {
+			int root = temp_index / 2;
+			if (arr[temp_index] > arr[root]) {
+				swap(root, temp_index);
+				temp_index = temp_index / 2;
+			} else {
+				break;
+			}
+		}
+	}
+
+	public int delete() {
+        if (isEmpty()) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		int start = 1;
+		int max = arr[start];
+		arr[start] = arr[size];
+		arr[size] = Integer.MIN_VALUE;
+		size--;
+		while (size > 0) {
+			if ((arr[start] > arr[start * 2]) && arr[start] > arr[start * 2 + 1]) {
+				break;
+			} else if (arr[start * 2] > arr[start * 2 + 1]) {
+				swap(start, start * 2);
+				start = start * 2;
+			} else {
+				swap(start, start * 2 + 1);
+				start = start * 2 + 1;
+			}
+		}
+		return max;
+	}
+	
+	public int size() {
+		return size;
+	}
+}
+```
+
