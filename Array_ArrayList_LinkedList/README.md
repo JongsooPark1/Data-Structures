@@ -3,7 +3,7 @@
 
 ### Array
 
-> 배열. 선언시 크기 정해진다. 따라서 원소의 크기 만큼 메모리(공간)가 확보 되어 있어야 한다. index를 갖고 있기 때문에 random access(임의 접근) 가능하다.
+> 배열. 선언시 크기 정해진다. 따라서 원소의 크기 만큼 메모리(공간)가 확보 되어 있어야 한다. index를 갖고 있기 때문에 random access(임의 접근) 가능하다. primitive data type와 object 모두 보관 가능
 
 
 
@@ -19,7 +19,7 @@
 
 ### ArrayList
 
-> 배열리스트. 크기가 정해져 있지 않다(제한도 없다. 메모리가 허용하는 범위까지). 기본적으로 배열 구조를 하고 있다. index를 갖고 있기 때문에 random access(임의 접근) 가능하다.
+> 배열리스트. 크기가 정해져 있지 않다(제한도 없다. 메모리가 허용하는 범위까지). 기본적으로 배열 구조를 하고 있다. index를 갖고 있기 때문에 random access(임의 접근) 가능하다. object만 보관 가능(arraylist.add(1)은 primitive type인 int를 Integer object로 바꿔서 보관하는 것 뿐). 따라서 overhead가 array에 비해 더 커 메모리 효율이 더 낮다
 
 
 
