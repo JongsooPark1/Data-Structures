@@ -10,6 +10,70 @@
 
 </br>
 
+* Array 방식으로 Stack 구현 code
+
+```java
+class ArrayStack {
+	private int top;
+    private int maxSize;
+    private Object[] arr;
+    
+    // 배열 스택 생성,  스택의 최대 크기로 생성
+    public ArrayStack(int maxSize){
+        this.maxSize = maxSize;
+        this.arr = new Object[maxSize];
+        this.top = -1;
+    }
+    
+    // maxSize 설정 안했다면 100으로 초기화
+    public ArrayStack() {
+        this.maxSize = 100;
+        this.arr = new Object[maxSize];
+        this.top = -1;
+    }
+    
+    // 스택이 비어있는지 체크
+    public boolean isEmpty(){
+        return (top == -1);
+    }
+    
+    // 스택이 꽉찼는지 체크
+    public boolean isFull(){
+        return (top == maxSize-1);
+    }
+    
+    // 스택에 item 입력
+    public void push(Object item){
+        if(isFull()) {
+        		throw new ArrayIndexOutOfBoundsException("index : " + (top + 1));
+        }
+        arr[++top] = item;
+    }
+    
+    // 스택의 가장 위의 데이터 반환
+    public Object peek(){
+        if(isEmpty()) {
+        		throw new ArrayIndexOutOfBoundsException("index : " + top);
+        }
+        return arr[top];
+    }
+    
+    // 스택의 가장 위의 데이터 제거
+    public Object pop(){
+        Object item = peek();
+        top--;
+        return item;
+    }
+    
+    public int size() {
+    	return (top + 1);
+    }
+```
+
+</br>
+
+</br>
+
 * LinkedList 방식으로 Stack 구현 code
 
 ```java
@@ -65,8 +129,6 @@ public class ListStack {
 }
 ```
 
-
-
 </br>
 
 </br>
@@ -76,6 +138,67 @@ public class ListStack {
 선형 자료구조의 일종으로 First In First Out (FIFO, 선입선출). 즉, 먼저 들어간 놈이 먼저 나온다. Stack 과는 반대로 먼저 들어간 원소가 맨 앞에서 대기하고 있다가 먼저 나오게 되는 구조이다. 참고로 Java Collection에서 Queue는 인터페이스이다
 
 ![image1](queue.png)
+
+</br>
+
+* Array 방식으로 Queue 구현 code
+
+```java
+class ArrayQueue{
+	private int head;
+	private int tail;
+	private Object arr[];
+	private int maxSize;
+	
+	public ArrayQueue(int maxSize) {
+		this.head = 0;
+		this.tail = -1;
+		this.maxSize = maxSize;
+		this.arr = new Object[maxSize];
+	}
+	
+	public ArrayQueue() {
+		this.head = 0;
+		this.tail = -1;
+		this.maxSize = 100;
+		this.arr = new Object[maxSize];
+	}
+	
+	public boolean isEmpty() {
+		return (head == tail + 1);
+	}
+	
+	public boolean isFull() {
+		return (tail == maxSize + 1);
+	}
+	
+	public void add(Object data) {
+		if (isFull()) {
+			throw new ArrayIndexOutOfBoundsException("index : " + (tail + 1));
+		}
+		arr[++tail] = data;
+	}
+	
+	public Object peek() {
+		if (isEmpty()) {
+			throw new ArrayIndexOutOfBoundsException("index : " + (head));
+		}
+		return arr[head];
+	}
+	
+	public Object poll() {
+		Object data = peek();
+		head++;
+		return data;
+	}
+	
+	public int size() {
+		return (tail + 1 - head);
+	}
+}
+```
+
+</br>
 
 </br>
 
@@ -153,8 +276,6 @@ public class ListQueue {
 }
 ```
 
-
-
 </br>
 
 </br>
@@ -181,7 +302,9 @@ public class ListQueue {
 
 ### Heap
 
-- 힙(heap)은 **완전이진트리(Complete binary tree)**를 기본으로 한 자료구조(tree-based structure) (시간복잡도 : O(log N))
+- 힙(heap)은 **완전이진트리(Complete binary tree)**를 기본으로 한 자료구조(tree-based structure)
+
+- 시간 복잡도 : 삽입 - logN, 삭제 - logN
 
 - 일반적으로 **배열**을 사용하여 **구현**한다.
 
