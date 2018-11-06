@@ -27,22 +27,21 @@
 * 마지막 level만 두 개로 꽉 차지 않은 binary tree
 * 마지막 level은 꽉 차 있지 않아도 되지만, node가 왼쪽에서 오른쪽으로 채워져야 한다
 
-* 높이가 h인 full binary tree는 2^h - 1개의 node를 갖는다
-
-* node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
+* node가 n개인 complete binary tree의 높이(h)는 log2(n)이다
 
 </br>
 
 **full binary tree(전 이진 트리)**
 
-* 모든 노드가 0개 또는 2개의 자식 노드를 갖는 트리
+* 모든 node가 0개 또는 2개의 자식 노드를 갖는 트리
 
 </br>
 
 **perfect binary tree(포화 이진 트리)**
 
 * 모든 내부 node가 두 개의 자식 node를 갖는다
-* node의 개수가 정확히 2^(h - 1)개
+* node가 n개인 complete binary tree의 높이(h)는 log2(n)이다
+* node의 개수가 정확히 2^h - 1개
 
 </br>
 
@@ -86,14 +85,15 @@
 
 </br>
 
-* **successor** : 해당 node보다 크면서 가장 작은 키(값)를 가진 node, successor 찾는 시간 복잡도는 O(h)
+(h : tree의 높이)
 
+* **successor** : 해당 node보다 크거나 같은 값 중 가장 작은 값을 가진 node, successor 찾는 시간 복잡도는 O(h)
   * node v의 오른쪽 subtree가 존재 할 경우 : 오른쪽 subtree의 최소값(가장 왼쪽 값)
 
-  * node v의 오른쪽 subtree가 존재 안할 경우 : 부모 node 타고 쭉 올라가다가, 처음으로 어떤 node의 왼쪽 자식 node가 되는 node
+  * node v의 오른쪽 subtree가 존재 안할 경우 : 부모 node 따라 올라가는데, 처음으로 left edge(내려오는 기준)를 탈때 만나는 node
 
   * node v가 최대값이면 successor 없다
-* **predecessor** : 해당 node보다 작으면서 가장 큰 키(값)를 가진 node, predecessor 찾는 시간 복잡도는 O(h)
+* **predecessor** : 해당 node보다 작거나 같은 값 중 가장 큰 값을 가진 node, predecessor 찾는 시간 복잡도는 O(h)
 * * successor 찾는 방식과 반대
 
 </br>
@@ -104,7 +104,7 @@
 
 * **Search** : O(h)
 
-* **Insert** : O(h), 처음 삽입한 node가 root node. 새로 node가 삽입 될 때, 기존의 node들은 그 자리를 유지한채로 새 node만 삽입된다
+* **Insert** : O(h), 처음 삽입한 node가 root node. 새로 node가 삽입 될 때, 기존의 node들은 그 자리를 유지한채로 새 node만 B.S.T를 유치하면서 삽입된다
 
 * **Delete** : O(h)
 
@@ -112,7 +112,7 @@
 
   * 자식 node가 1개 : 삭제하고자 하는 node 제거하고, 그 node의 자식 node를 부모 node와 연결 (O(1))
 
-  * 자식 node가 2개 : 삭제하고자 하는 node 제거하고, 제거 한 자리에 그 node의 successor를 복사한 뒤, copy 당한 node를 없애고 대신 그 자식 node를 그 자리에 위치 시킴 (O(h))
+  * 자식 node가 2개 : 삭제하고자 하는 node 제거하고, 제거 한 자리에 그 node의 **successor**를 복사한 뒤, copy 당한 node를 없앤다. 이 때에도 마찬가지로 자식 node 개수(0개 or 1개)에 따라 위와 같은 방법으로 제거한다(O(h))
 
     </br>
 
