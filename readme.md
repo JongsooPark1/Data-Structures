@@ -1,6 +1,6 @@
 ## Data Structures
 
-
+</br>
 
 
 * [Array, ArrayList, LinkedList](./Array_ArrayList_LinkedList)
@@ -17,14 +17,16 @@
 
 
 
+* [Deque](./deque)
+
+
+
 
 * [Circular Queue](./circularQueue)
 
 
 
-
-* [Priority Queue](./priorityQueue)
-
+* [Tree](./tree)
 
 
 
@@ -33,12 +35,7 @@
 
 
 
-* [Deque](./deque)
-
-
-
-
-* [Tree](./tree)
+* [Priority Queue](./priorityQueue)
 
 
 

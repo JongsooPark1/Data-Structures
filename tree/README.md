@@ -1,11 +1,14 @@
 ## Tree
 
+</br>
 
 노드가 N개인 트리는 항상 N-1개의 링크를 갖는다
 
 임의의 두 노드간 경로는 유일하다(같은 노드를 두 번 이상 방문하지 않는다는 전제 조건 아래)
 
+</br>
 
+</br>
 
 ### 이진트리(Binary Tree)
 
@@ -13,29 +16,47 @@
 
 각각의 자식 노드는 자신이 부모의 왼쪽 자식인지, 오른쪽 자신인지 지정된다.(자식 노드가 한 개인 경우에도)
 
+</br>
 
+![full](./full.png)
 
-![1](./tree1.jpg)
+</br>
 
-**complete binary tree(완전 이진 트리)** : 마지막 level만 두 개로 꽉 차지 않은 binary tree
+**complete binary tree(완전 이진 트리)**
 
+* 마지막 level만 두 개로 꽉 차지 않은 binary tree
+* 마지막 level은 꽉 차 있지 않아도 되지만, node가 왼쪽에서 오른쪽으로 채워져야 한다
 
+* 높이가 h인 full binary tree는 2^h - 1개의 node를 갖는다
 
-높이가 h인 full binary tree는 2^h - 1개의 node를 갖는다
+* node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
 
-node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
+</br>
+
+**full binary tree(전 이진 트리)**
+
+* 모든 노드가 0개 또는 2개의 자식 노드를 갖는 트리
+
+</br>
+
+**perfect binary tree(포화 이진 트리)**
+
+* 모든 내부 node가 두 개의 자식 node를 갖는다
+* node의 개수가 정확히 2^(h - 1)개
+
+</br>
 
 </br>
 
 #### 구조
-
-
 
 일반적인 이진 트리는 f.b.t 또는 c.b.t 처럼 각 node간 index의 규칙성이 없다. 따라서 각 node는 왼쪽 자식과 오른쪽 자식의 node 주소를 갖고 있으며, 때때로 부모 node의 주소도 갖고 있는 경우도 있다. 연결 구조로 표현. root node의 주소는 따로 보관한다.
 
 ![2](./tree2.jpg)
 
 
+
+</br>
 
 </br>
 
@@ -51,9 +72,7 @@ node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
 
 </br>
 
------
-
-
+</br>
 
 ### 이진 검색 트리(Binary Search Tree)
 
@@ -74,16 +93,10 @@ node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
   * node v의 오른쪽 subtree가 존재 안할 경우 : 부모 node 타고 쭉 올라가다가, 처음으로 어떤 node의 왼쪽 자식 node가 되는 node
 
   * node v가 최대값이면 successor 없다
-
 * **predecessor** : 해당 node보다 작으면서 가장 큰 키(값)를 가진 node, predecessor 찾는 시간 복잡도는 O(h)
-
 * * successor 찾는 방식과 반대
 
-
-
-
-
-
+</br>
 
 </br>
 
@@ -98,14 +111,17 @@ node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
 * * 자식 node가 없을 경우 : 삭제하고자 하는 node만 트리에서 제거 (O(1))
 
   * 자식 node가 1개 : 삭제하고자 하는 node 제거하고, 그 node의 자식 node를 부모 node와 연결 (O(1))
+
   * 자식 node가 2개 : 삭제하고자 하는 node 제거하고, 제거 한 자리에 그 node의 successor를 복사한 뒤, copy 당한 node를 없애고 대신 그 자식 node를 그 자리에 위치 시킴 (O(h))
+
+    </br>
 
 
 ![delete](./delete.jpg)
 
 </br>
 
-----
+</br>
 
 ### Red Black Tree ###
 
@@ -114,3 +130,23 @@ node가 n개인 full 혹은 complete binary tree의 높이(h)는 log2(n)이다
 http://zeddios.tistory.com/237
 
 http://thesoul214.tistory.com/113
+
+</br>
+
+</br>
+
+### 그래프와 트리의 차이
+
+</br>
+
+![gt](./gt.png)
+
+</br>
+
+</br>
+
+### 참조
+
+</br>
+
+https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html
