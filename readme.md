@@ -5,17 +5,54 @@
 
 * [Array, ArrayList, LinkedList](./Array_ArrayList_LinkedList)
 
-* [Stack & Queue](./stack_queue_deque)
+
+
+
+* [Stack](./stack)
+
+
+
+
+* [Queue](./queue)
+
+
+
+
+* [Circular Queue](./circularQueue)
+
+
+
+
+* [Priority Queue](./priorityQueue)
+
+
+
+
+* [Heap](./heap)
+
+
+
+
+* [Deque](./deque)
+
+
+
 
 * [Tree](./tree)
 
+
+
+
 * [Hash Table](./hashTable)
+
+
+
 
 * [Graph](./graph)
 
 
 
-
+</br>
 
 ### Java Collections – Performance (Time Complexity)
 
