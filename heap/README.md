@@ -4,7 +4,11 @@
 
 - 힙(heap)은 **완전이진트리(Complete binary tree)**를 기본으로 한 자료구조(tree-based structure)
 
-- 시간 복잡도 : 삽입 - logN, 삭제 - logN
+- 시간 복잡도
+
+- * 삽입 - O(logN). O(h) = O(log(N + 1))
+
+  * 삭제 - O(logN). O(h) = O(log(N + 1))
 
 - 일반적으로 **배열**을 사용하여 **구현**한다.
 
@@ -24,13 +28,10 @@
 
     부모의 인덱스 = (자식의 인덱스) / 2
 
-
-
 * 우선 순위 큐를 만들기 위해 만들어진 자료 구조
-
 * 최대힙(max heap) : 부모 노드의 키 값이 자식 노드의 키 값보다 크거나 같은 완전 이진 트리
 
-  최소힙(min heap) : 부모 노드의 키 값이 자식 노드의 키 값보다 작거나 같은 완전 이진 트리
+* 최소힙(min heap) : 부모 노드의 키 값이 자식 노드의 키 값보다 작거나 같은 완전 이진 트리
 
 </br>
 
@@ -40,9 +41,41 @@
 
 </br>
 
-참조
+</br>
 
-https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html
+### 최대힙(max Heap)
+
+</br>
+
+####삽입
+
+1. 힙에 새로운 요소가 들어오면, 일단 새로운 노드를 힙의 마지막 노드에 이어서 삽입한다.
+
+2. 새로운 노드를 부모 노드들과 교환해서 힙의 성질을 만족시킨다.
+
+</br>
+
+![h1](./h1.png)
+
+</br>
+
+</br>
+
+#### 삭제
+
+1. 최대 힙에서 최댓값은 루트 노드이므로 루트 노드가 삭제된다.(최대 힙(max heap)에서 삭제 연산은 최댓값을 가진 요소를 삭제하는 것이다.)
+2. 삭제된 루트 노드에는 힙의 마지막 노드를 가져온다.
+3. 힙을 재구성한다.
+
+</br>
+
+![h2](./h2.png)
+
+</br>
+
+</br>
+
+### 구현
 
 </br>
 
@@ -50,12 +83,13 @@ https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html
 
 ```java
 public class Heap {
-	private static final int Max_Size = 101;
+	private int maxSize;
 	public int arr[];
 	private int size;
 
-	public Heap() {
-		arr = new int[Max_Size];
+	public Heap(maxSize) {
+        this.maxSize = maxSize + 1;
+		arr = new int[this.maxSize];
 		Arrays.fill(arr, Integer.MIN_VALUE);
 		size = 0;
 	}
@@ -65,7 +99,7 @@ public class Heap {
 	}
 
 	public boolean isFull() {
-		return (size == Max_Size - 1);
+		return (size == maxSize - 1);
 	}
 
 	private void swap(int a, int b) {
@@ -86,7 +120,7 @@ public class Heap {
 			int root = temp_index / 2;
 			if (arr[temp_index] > arr[root]) {
 				swap(root, temp_index);
-				temp_index = temp_index / 2;
+				temp_index /= 2;
 			} else {
 				break;
 			}
@@ -102,7 +136,7 @@ public class Heap {
 		arr[start] = arr[size];
 		arr[size] = Integer.MIN_VALUE;
 		size--;
-		while (size > 0) {
+		while ((start * 2 + 1) < maxSize) {
 			if ((arr[start] > arr[start * 2]) && arr[start] > arr[start * 2 + 1]) {
 				break;
 			} else if (arr[start * 2] > arr[start * 2 + 1]) {
@@ -122,3 +156,10 @@ public class Heap {
 }
 ```
 
+</br>
+
+</br>
+
+###참조
+
+https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html
