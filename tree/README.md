@@ -24,10 +24,10 @@
 
 **complete binary tree(완전 이진 트리)**
 
-* 마지막 level만 두 개로 꽉 차지 않은 binary tree
+* 마지막 level만 두 개로 꽉 차지 않은 binary tree(1개만 존재)
 * 마지막 level은 꽉 차 있지 않아도 되지만, node가 왼쪽에서 오른쪽으로 채워져야 한다
 
-* node가 n개인 complete binary tree의 높이(h)는 log2(n)이다
+* node가 n개인 complete binary tree의 높이(h)는 log2(n + 1)이다
 
 </br>
 
@@ -40,7 +40,7 @@
 **perfect binary tree(포화 이진 트리)**
 
 * 모든 내부 node가 두 개의 자식 node를 갖는다
-* node가 n개인 complete binary tree의 높이(h)는 log2(n)이다
+* node가 n개인 complete binary tree의 높이(h)는 log2(n + 1)이다
 * node의 개수가 정확히 2^h - 1개
 
 </br>
@@ -49,7 +49,7 @@
 
 #### 구조
 
-일반적인 이진 트리는 f.b.t 또는 c.b.t 처럼 각 node간 index의 규칙성이 없다. 따라서 각 node는 왼쪽 자식과 오른쪽 자식의 node 주소를 갖고 있으며, 때때로 부모 node의 주소도 갖고 있는 경우도 있다. 연결 구조로 표현. root node의 주소는 따로 보관한다.
+일반적인 이진 트리는 p.b.t 또는 c.b.t 처럼 각 node간 index의 규칙성이 없다. 따라서 각 node는 왼쪽 자식과 오른쪽 자식의 node 주소를 갖고 있으며, 때때로 부모 node의 주소도 갖고 있는 경우도 있다. 연결 구조로 표현. root node의 주소는 따로 보관한다.
 
 ![2](./tree2.jpg)
 
