@@ -45,11 +45,9 @@ class ListDeque {
 		if (isEmpty()) {
 			head = newNode;
 			tail = newNode;
-			newNode.right = null;
-			newNode.left = null;
 		} else {
+            // 주의!!!
 			newNode.right = head;
-			newNode.left = null;
 			head.left = newNode;
 			head = newNode;
 		}
@@ -61,10 +59,8 @@ class ListDeque {
 		if (isEmpty()) {
 			head = newNode;
 			tail = newNode;
-			newNode.right = null;
-			newNode.left = null;
 		} else {
-			newNode.right = null;
+            // 주의!!!
 			newNode.left = tail;
 			tail.right = newNode;
 			tail = newNode;
@@ -89,10 +85,10 @@ class ListDeque {
 	public Object pollHead() {
 		Object data = peekHead();
 		head = head.right;
-		// else 부분 주의 ! head가 null이 되면 null.left는 존재 하지 않기 때문에 null error
 		if (head == null) {
 			tail = null;
 		} else {
+            // else 부분 주의 ! head가 null이 되면 null.left는 존재 하지 않기 때문에 null error
 			head.left = null;
 		}
 		size--;
@@ -102,10 +98,10 @@ class ListDeque {
 	public Object pollTail() {
 		Object data = peekTail();
 		tail = tail.left;
-		// else 부분 주의 ! tail이 null이 되면 null.right는 존재 하지 않기 때문에 null error
 		if (tail == null) {
 			head = null;
 		} else {
+            // else 부분 주의 ! tail이 null이 되면 null.right는 존재 하지 않기 때문에 null error
 			tail.right = null;			
 		}
 		size--;
