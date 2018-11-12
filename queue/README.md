@@ -189,8 +189,6 @@ public class ListQueue {
 	// data를 큐의 tail에 넣는다.
 	public void add(Object data) {
 		Node newNode = new Node(data);
-		// 이부분 잊지 말기
-		newNode.nextNode = null;
 		if (isEmpty()) {
 			tail = newNode;
 			head = newNode;
