@@ -134,19 +134,24 @@ A2 이후 다음 위치가 비어있기 때문에 C2를 없는 것으로 착각�
 
 </br>
 
-####chaining의 장점
+#### chaining의 장점
 
 1. 해쉬 함수를 구현(선택)하는 관점에서 볼 때, chained 해쉬 테이블은 클러스터링에 거의 영향을 받지 않아 충돌의 최소화만 중점적으로 살펴보면 된다. 반면에 open-addressing 방식은 클러스터링까지 피해야 하므로 해쉬 함수의 성능에 지대한 영향을 받아 해쉬 함수를 구현(선택)하기가 쉽지 않다
 2. 테이블이 채워져도 성능 저하가 linear하게 발생한다. 비록 테이블이 채워질 수록 chain은 늘어나겠지만(리스트의 길이가 길어지겠지만) near-filled 상태의 open-addressing 방식에서 발생하는 급작스런 lookup 시간의 증가는 발생하지 않는다
 
-  ![image8_1](/Users/PJS/Desktop/github/dataStructures/hashTable/chainingVS.jpg)
+</br>
 
-1. open addressing방식은 버킷을 계속해서 사용한다. 따라서 chaining 방식은 메모리 효율이 높고, 테이블의 확장(resizing)을 보다 늦출 수 있다
-2. data 삭제 시 문제 발생 확률이 낮다
+  ![image8_1](./chainingVS.jpg)
 
 </br>
 
-####open addressing 의 장점
+3. open addressing방식은 버킷을 계속해서 사용한다. 따라서 chaining 방식은 메모리 효율이 높고, 테이블의 확장(resizing)을 보다 늦출 수 있다
+
+4. data 삭제 시 문제 발생 확률이 낮다
+
+</br>
+
+#### open addressing 의 장점
 
 1. 외부에 별도 공간을 필요로 하지 않기 때문에 chaining의 연결 리스트 같은 외부 공간에 필요한 추가적인 작업이 요구되지 않는다
 
