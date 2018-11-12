@@ -47,7 +47,7 @@
 
 </br>
 
-####삽입
+#### 삽입
 
 1. 힙에 새로운 요소가 들어오면, 일단 새로운 노드를 힙의 마지막 노드에 이어서 삽입한다.
 
@@ -87,7 +87,7 @@ public class Heap {
 	public int arr[];
 	private int size;
 
-	public Heap(maxSize) {
+	public Heap(int maxSize) {
         this.maxSize = maxSize + 1;
 		arr = new int[this.maxSize];
 		Arrays.fill(arr, Integer.MIN_VALUE);
@@ -110,7 +110,7 @@ public class Heap {
 
 	public void insert(int data) {
         if (isFull()) {
-			throw new ArrayIndexOutOfException();
+			throw new ArrayIndexOutOfBoundsException();
 		}
 		size++;
 		int temp_index = size;
@@ -134,8 +134,10 @@ public class Heap {
 		int start = 1;
 		int max = arr[start];
 		arr[start] = arr[size];
+        // 배열 마지막에도 최소값 넣어주기!!!
 		arr[size] = Integer.MIN_VALUE;
 		size--;
+        // while조건 주의 !!!
 		while ((start * 2 + 1) < maxSize) {
 			if ((arr[start] > arr[start * 2]) && arr[start] > arr[start * 2 + 1]) {
 				break;
@@ -160,6 +162,6 @@ public class Heap {
 
 </br>
 
-###참조
+### 참조
 
 https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html
