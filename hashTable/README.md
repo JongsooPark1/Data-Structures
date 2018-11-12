@@ -1,7 +1,7 @@
 ## Hash Table
-###hash table?
-
 > hash function과 array를 합쳐 만든 자료 구조. 어떤 항목과 다른 항목간의 관계 및 연결을 표현하고자 할 때 사용한다
+
+</br>
 
 ![image0](./hashTable.png)
 
@@ -118,11 +118,17 @@ h2함수는 결국 h1함수로 반환된 slot의 위치가 차있을 경우 얼�
 
 </br>
 
+</br>  ![image8](./weaknessOfOpen.png)
 
 
 
+A2 이후 다음 위치가 비어있기 때문에 C2를 없는 것으로 착각할 수 있다. 따라서 C2를 3번 slot으로 옮겨주는 작업이 필요하다. 만약 C2 이후 계속 원소(같은 키 값을 갖는)가 있다면 가장 마지막 원소를 빈칸에 채워주는 것이 더 효율적이다.
 
-  #### Chaining vs Open Addressing
+</br>
+
+</br>
+
+#### Chaining vs Open Addressing
 
   일단 두 방식 모두 worst case 에서 O(n)이다. 하지만 open addressing방식은 연속된 공간에 데이터를 저장하기 때문에 separate chaining에 비해 캐시 효율이 높다. 따라서 데이터의 개수가 충분히 적다면 open addressing방식이 separate chaining보다 더 성능이 좋다
 
@@ -130,23 +136,13 @@ h2함수는 결국 h1함수로 반환된 slot의 위치가 차있을 경우 얼�
 
 ####chaining의 장점
 
-  1. 해쉬 함수를 구현(선택)하는 관점에서 볼 때, chained 해쉬 테이블은 클러스터링에 거의 영향을 받지 않아 충돌의 최소화만 중점적으로 살펴보면 된다. 반면에 open-addressing 방식은 클러스터링까지 피해야 하므로 해쉬 함수의 성능에 지대한 영향을 받아 해쉬 함수를 구현(선택)하기가 쉽지 않다
+1. 해쉬 함수를 구현(선택)하는 관점에서 볼 때, chained 해쉬 테이블은 클러스터링에 거의 영향을 받지 않아 충돌의 최소화만 중점적으로 살펴보면 된다. 반면에 open-addressing 방식은 클러스터링까지 피해야 하므로 해쉬 함수의 성능에 지대한 영향을 받아 해쉬 함수를 구현(선택)하기가 쉽지 않다
+2. 테이블이 채워져도 성능 저하가 linear하게 발생한다. 비록 테이블이 채워질 수록 chain은 늘어나겠지만(리스트의 길이가 길어지겠지만) near-filled 상태의 open-addressing 방식에서 발생하는 급작스런 lookup 시간의 증가는 발생하지 않는다
 
-  2. 테이블이 채워져도 성능 저하가 linear하게 발생한다. 비록 테이블이 채워질 수록 chain은 늘어나겠지만(리스트의 길이가 길어지겠지만) near-filled 상태의 open-addressing 방식에서 발생하는 급작스런 lookup 시간의 증가는 발생하지 않는다
+  ![image8_1](/Users/PJS/Desktop/github/dataStructures/hashTable/chainingVS.jpg)
 
-  ![image8_1](./chainingVS.jpg)
-
-  3. open addressing방식은 버킷을 계속해서 사용한다. 따라서 chaining 방식은 메모리 효율이 높고, 테이블의 확장(resizing)을 보다 늦출 수 있다
-
-  4. data 삭제 시 문제 발생 확률이 낮다
-
-  ![image8](./weaknessOfOpen.png)
-
-
-
-A2 이후 다음 위치가 비어있기 때문에 C2를 없는 것으로 착각할 수 있다. 따라서 C2를 3번 slot으로 옮겨주는 작업이 필요하다. 만약 C2 이후 계속 원소(같은 키 값을 갖는)가 있다면 가장 마지막 원소를 빈칸에 채워주는 것이 더 효율적이다.
-
-
+1. open addressing방식은 버킷을 계속해서 사용한다. 따라서 chaining 방식은 메모리 효율이 높고, 테이블의 확장(resizing)을 보다 늦출 수 있다
+2. data 삭제 시 문제 발생 확률이 낮다
 
 </br>
 
@@ -157,8 +153,6 @@ A2 이후 다음 위치가 비어있기 때문에 C2를 없는 것으로 착각�
 2. 데이터의 크기가 작다면, 특히 lookup에서, 이러한 특성들로 인해 chaining보다 성능이 좋을 수 있는 것이다
 
 3. 포인터를 사용하지 않아 메모리 소비 적고, serialization이 용이하다
-
-
 
 </br>
 
@@ -173,6 +167,10 @@ A2 이후 다음 위치가 비어있기 때문에 C2를 없는 것으로 착각�
     대개 사용률이 0.7 이상이면 해시 테이블의 슬롯을 추가해준다 -> resizing(대략 기존 hash table 크기의 두배)
 
   * 새로운 hash table을 생성하고 data를 옮겨야 하기 때문에 굉장히 cost가 큰 작업. 따라서 resizing을 할 필요가 없도록 hash table을 설계해야한다
+
+</br>
+
+</br>
 
 
 참조
