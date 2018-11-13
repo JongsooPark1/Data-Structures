@@ -104,7 +104,7 @@
 
 * **Search** : O(h)
 
-* **Insert** : O(h), 처음 삽입한 node가 root node. 새로 node가 삽입 될 때, 기존의 node들은 그 자리를 유지한채로 새 node만 B.S.T를 유치하면서 삽입된다
+* **Insert** : O(h), 처음 삽입한 node가 root node. 새로 node가 삽입 될 때, 기존의 node들은 그 자리를 유지한채로 새 node만 B.S.T를 유지하면서 삽입된다
 
 * **Delete** : O(h)
 
