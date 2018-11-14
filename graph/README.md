@@ -110,7 +110,9 @@ edge에 가중치(weight)가 존재하는 graph. weighted graph에서 최단 경
 
 #### dijkstra's algorithm
 
-나중에 정리...잘 이해 안된다...
+algorithm dir - dijkstra dir 참조
+
+</br>
 
 * 최단 경로 탐색 비교
 
